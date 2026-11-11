@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to Eduplus International School.">
+  <title>Sign In | Eduplus International School</title>
+  <link rel="stylesheet" href="SignUp.css">
+</head>
+<body>
+  <!-- HEADER: adapted from the supplied ContactUs.html -->
+  <header class="header">
+    <section class="header__Logo">
+      <img src="I-pic/Eduplus_Logo.png" alt="Eduplus International School logo">
+      <p>EDUPLUS INTERNATIONAL SCHOOL</p>
+    </section>
+
+    <section class="header__menu" aria-label="Mobile navigation">
+      <input type="checkbox" id="menu-toggle" aria-label="Toggle navigation">
+      <label for="menu-toggle" class="hamburger">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <line class="line1" x1="3" y1="6" x2="21" y2="6"></line>
+          <line class="line2" x1="3" y1="12" x2="21" y2="12"></line>
+          <line class="line3" x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </label>
+    </section>
+
+    <nav class="header__nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="About.html">About Us</a></li>
+        <li><a href="Admission.html">Admission</a></li>
+        <li><a href="ContactUs.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="signin-card" aria-labelledby="signin-title">
+      <h1 id="signin-title">Hello, friend!</h1>
+
+      <form class="signin-form" action="#" method="post">
+        <label class="input-wrap">
+          <span class="field-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 12a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
+          </span>
+          <input type="text" name="name" placeholder="Name" autocomplete="name" required>
+        </label>
+
+        <label class="input-wrap">
+          <span class="field-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm9 7.2L4.2 7h15.6L12 12.2Zm0 2.4L4 8.8V17h16V8.8l-8 5.8Z"/></svg>
+          </span>
+          <input type="email" name="email" placeholder="E-mail" autocomplete="email" required>
+        </label>
+
+        <label class="input-wrap">
+          <span class="field-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6 10V7a6 6 0 0 1 12 0v3h1.2A1.8 1.8 0 0 1 21 11.8v8.4a1.8 1.8 0 0 1-1.8 1.8H4.8A1.8 1.8 0 0 1 3 20.2v-8.4A1.8 1.8 0 0 1 4.8 10H6Zm2 0h8V7a4 4 0 0 0-8 0v3Zm4 4a1.7 1.7 0 0 0-1 3.1V19h2v-1.9a1.7 1.7 0 0 0-1-3.1Z"/></svg>
+          </span>
+          <input id="password" type="password" name="password" placeholder="Password" autocomplete="current-password" required>
+          <button class="password-toggle" type="button" aria-label="Show password" aria-controls="password">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c-5 0-9.2 4.1-10.5 7 1.3 2.9 5.5 7 10.5 7s9.2-4.1 10.5-7C21.2 9.1 17 5 12 5Zm0 11.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9Zm0-2a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/></svg>
+          </button>
+        </label>
+
+        <label class="terms">
+          <input type="checkbox" name="terms" required>
+          <span>I've read and agree to <a href="#">Terms &amp; Conditions</a></span>
+        </label>
+
+        <button class="signin-button" type="submit">SIGN IN</button>
+      </form>
+
+      <p class="account-prompt">Don't have an account? <a href="#">Sign up</a></p>
+    </section>
+  </main>
+
+  <script>
+    const passwordInput = document.querySelector("#password");
+    const passwordToggle = document.querySelector(".password-toggle");
+
+    passwordToggle.addEventListener("click", () => {
+      const showing = passwordInput.type === "text";
+      passwordInput.type = showing ? "password" : "text";
+      passwordToggle.setAttribute("aria-label", showing ? "Show password" : "Hide password");
+    });
+  </script>
+</body>
+</html>

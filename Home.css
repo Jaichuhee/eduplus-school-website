@@ -1,0 +1,1523 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    font-size: 100%;
+    min-height: 100%;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: block;
+    width: 100%;
+    margin: 0;
+    min-height: 100svh;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+.page-wrapper
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+.page-wrapper > .footer
+{
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+img,
+picture{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+button,
+input,
+textarea,
+select{
+    font: inherit;
+}
+
+
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+:root{
+
+    /*========== FONT SIZES ==========*/
+
+    --XL-FS: clamp(3.5rem, 8vw, 6rem);
+    --X-FS: clamp(2.5rem, 6vw, 5rem);
+    --L-FS: clamp(2rem, 5vw, 3.5rem);
+    --LL-FS: clamp(1.8rem, 4vw, 2.5rem);
+    --H2LL-FS: clamp(2.5rem, 4vw, 4rem);
+    --M-FS: clamp(1.25rem, 3vw, 2rem);
+    --S-FS: 1.7rem;
+    --XS-FS: 1.5rem;
+    --XXS-FS: 1rem;
+
+    /*========== SPACING ==========*/
+
+    --XXL-PS: 3rem;
+    --XL-PS: 2.5rem;
+    --X-PS: 2rem;
+    --L-PS: 1.5rem;
+    --M-PS: 1rem;
+    --S-PS: .5rem;
+    --XS-PS: .25rem;
+
+    /*========== COLORS ==========*/
+
+    --BG-color: linear-gradient(
+        to bottom,
+        #dedede,
+        #e5faff,
+        #b1e4ff,
+        #ca1eaa
+    );
+
+    --Part1header-BG: linear-gradient(
+        to right,
+        #dedede,
+        white,
+        #dedede
+    );
+
+    --Title-BG: linear-gradient(
+        to left,
+        #345364,
+        #316885,
+        #3e80a4,
+        #6ea3bf
+    );
+
+    --BGdrop: linear-gradient(
+        to left,
+        rgba(52,83,100,.6),
+        rgba(49,104,133,.6),
+        rgba(62,128,164,.6),
+        rgba(110,163,191,.6)
+    );
+
+    --Gradient: linear-gradient(
+        110deg, 
+        #16803c 0%, 
+        #8fbd35 52%, 
+        #f2d94e 100%
+    );
+
+    --Soft-gradient: linear-gradient(
+        120deg, 
+        rgba(22,128,60,.32), 
+        rgba(242,217,78,.42)
+    );
+
+    --Logo-Colour: #043b1a;
+    --Header-Nav: #106005;
+    --Part2: rgba(255,255,255,.86);
+    --IceStickBG: #000;
+    --White: #fff;
+    --Green: #16803c;
+    --Black: #000;
+
+    /*========== SHADOWS ==========*/
+
+    --Def-BS: 0 0 10px rgba(0,0,0,.45);
+
+    --DefL-BS: 0 0 10px rgba(255,255,255,.5);
+
+    --Inset-BS:
+        -7px -7px 10px rgba(68,67,67,.25),
+         7px  7px 15px rgba(70,70,70,.12),
+        Inset -7px -7px 15px rgba(255,255,255,.65),
+        Inset  7px  7px 15px rgba(70,70,70,.12);
+
+    --AboutUs-BS:
+        20px 20px 50px rgba(0,0,0,.35);
+
+    /*========== BORDER RADIUS ==========*/
+
+    --Radius-S: .5rem;
+    --Radius-M: 1rem;
+    --Radius-L: 2rem;
+    --Radius-XL: 3rem;
+
+    /*========== TRANSITION ==========*/
+
+    --Transition: .3s ease;
+}
+
+
+
+
+/* =========================================
+   GENERAL STYLES
+========================================= */
+body{
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    overflow-x: hidden;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 100svh;
+
+    background: var(--White);
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #043b1a;
+}
+
+.Part1, .Part2{
+    width: min(90%, 1400px);
+    min-width: 0;
+    margin-inline: auto;
+}
+
+.footer{
+    width: 100%;
+    min-width: 0;
+}
+
+h1,
+h2,
+h3{
+
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+p{
+    font-size: var(--S-FS);
+    line-height: 1.7;
+}
+
+a{
+    transition: var(--Transition);
+}
+
+button{
+    cursor: pointer;
+    border: none;
+    transition: var(--Transition);
+}
+
+button:hover,
+a:hover{
+    opacity: .9;
+}
+
+::selection{
+    background: var(--FlavourText);
+    color: var(--White);
+}
+
+
+
+
+/* =========================================
+   Part1
+========================================= */
+.Part1
+{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.Part1::before
+{
+    content: "";
+    position: absolute;
+
+    inset: 0;
+
+    left: calc((100% - 100vw)/2);
+    top: 0;
+
+    height: 700px;
+    width: 100vw;
+
+    background: linear-gradient( to right, #faf0ce 0%, 
+                                    rgba(248, 237, 204, 0.952) 30%, 
+                                    rgba(255, 246, 215, 0.842) 50%,
+                                    rgba(255, 246, 215, 0.205) 75% );
+
+    background-size: 100% 100%, auto 100%;
+    background-repeat: no-repeat ;
+    background-position: center, right center;
+
+    -webkit-mask-image: url("#waveMask");
+    mask-image: url("#waveMask");
+
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    z-index: -2;
+
+    pointer-events: none;
+}
+
+.hero-mask
+{
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    pointer-events: none;
+}
+
+
+/*------  Header ------*/
+/* =========================
+   HEADER
+========================= */
+.Part1__header {
+    position: relative;
+    z-index: 20;
+    width: min(90%, 1400px);
+    margin-inline: auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 1rem;
+}
+  
+.Logo {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 1rem;
+    width: clamp(11rem, 22vw, 20rem);
+    flex-shrink: 0;
+    color: #043b1a;
+}
+  
+.Logo img {
+    width: clamp(3.5rem, 6vw, 6rem);
+    height: clamp(3.5rem, 6vw, 6rem);
+    object-fit: contain;
+    flex-shrink: 0;
+}
+  
+.Logo p {
+    font-size: clamp(.95rem, 1.6vw, 1.3rem);
+    line-height: 1.1;
+    font-weight: 700;
+}
+  
+.nav {
+    display: block;
+    margin-left: auto;
+}
+  
+.nav ul {
+    display: flex;
+    align-items: center;
+    gap: clamp(.6rem, 2vw, 2rem);
+    list-style: none;
+}
+  
+.nav a {
+    position: relative;
+    display: block;
+    padding: .6rem clamp(.6rem, 1.6vw, 1.4rem);
+    font-size: clamp(.85rem, 1.3vw, 1rem);
+    white-space: nowrap;
+    color: #106005;
+    transition: color var(--Transition);
+}
+  
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 15%;
+    bottom: .15rem;
+    width: 0;
+    height: 3px;
+    border-radius: 10px;
+    background: var(--Gradient);
+    transition: width var(--Transition);
+}
+  
+.nav a:hover {
+    color: var(--Green);
+}
+  
+.nav a:hover::after {
+    width: 70%;
+}
+
+.nav a[aria-current="page"]::after {width: 70%; }
+
+
+#menu-toggle
+{
+    display: none;
+}
+
+.hamburger
+{
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger svg
+{
+    width: 30px;
+    height: 30px;
+}
+
+.hamburger line
+{
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+
+    transform-box: view-box;
+    transform-origin: center;
+
+    transition: transform .3s ease, opacity .2s ease;
+}
+
+
+/*------  Hero ------*/
+.Part1__Hero
+{
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+
+    /* height: 700px; */
+    /* overflow: hidden; */
+}
+
+/*------  What we stand for ------*/
+.Part1__What-we-stand-for
+{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    padding: 2rem 0 4rem 5rem;
+    width: 50%;
+
+    z-index: 10;
+}
+
+.Part1__What-we-stand-for h2
+{
+    position: relative;
+
+    width: fit-content;
+    padding: 0.8rem;
+    border-radius: 10px;
+    line-height: 1.05;
+
+    background: white;
+    z-index: 0;
+    white-space: nowrap;
+    font-size: clamp(1.7rem, 3.2vw, 2.8rem);
+}
+
+.Part1__What-we-stand-for h2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -3px;
+
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 10px;
+
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+
+    z-index: 2;
+    pointer-events: none;
+    filter: drop-shadow(-2px 3px 2px
+        rgba(0, 0, 0, 0.12));
+    
+    background: rgb(217, 217, 217);
+}
+
+.Part1__What-we-stand-for > .AboutUs
+{
+    width: min(100%, 560px);
+
+    font-size: clamp(.95rem, 1.35vw, 1.15rem);
+    line-height: 1.55;
+
+    color: #043b1a;
+}
+
+.line
+{
+    position: relative;
+    height: 3px;
+    width: 80px;
+    background-color: #b7a415;
+}
+
+h2
+{
+    margin-top: 1rem;
+    font-size: 2.8rem;
+    line-height: 1.05;
+}
+.green-text
+{
+    color: #043b1a;
+}
+.gold-text
+{
+    color: #b4b116;
+}
+
+.buttons
+{
+    display: flex;
+    flex-direction: row ;
+    align-items: center ;
+    flex-wrap: nowrap ;
+    gap: 1rem;
+
+    width: 100%;  
+}
+
+.buttons button
+{
+    padding: 0.9rem 1.5rem;
+
+    border-radius: 10px ;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    box-shadow: var(--Def-BS);
+
+    white-space: nowrap ;
+
+    flex: 0 1 auto ;
+}
+
+.buttons button:first-child
+{
+    color: #c3c017;
+    background-color: #043b1a;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+/*------  Little Girl ------*/
+.Part1__Hero figure{
+    /* position: relative; */
+
+
+    /*     right: 0;
+        top: 10%;
+        width: 60%;
+    height: 600px; */
+}
+.Part1__Hero >img{
+    position: absolute;
+
+    height: auto;
+    width:320px;
+    max-width:48%;
+    /* width: 8%; */
+
+    /* right: 2%;
+    top: -12%; */
+
+    top: -14%;
+    right: 0;
+    left: auto;
+
+    filter: drop-shadow(0 0px 30px rgba(148, 137, 39, 0.411));
+
+    clip-path: none;
+    object-fit: contain;
+    display: block;
+
+    z-index: 2;
+    pointer-events: none;
+    /* overflow: hidden; */
+}
+
+
+
+
+/* =========================================
+   Part2
+========================================= */
+
+.Part2 {
+    --flower-width: clamp(140px, 22vw, 280px);
+    --part2-gap: clamp(0.75rem, 2vw, 1.5rem);
+
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 0.5rem 1rem 0.25rem;
+    gap: var(--part2-gap);
+
+    background: #ffffff;
+    z-index: 1;
+}
+
+/* Invisible balancing space */
+.Part2::before {
+    content: "";
+
+    flex: 0 0 var(--flower-width);
+}
+
+
+/*------  Part2 Container ------*/
+.Part2__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 1 480px;
+    min-width: 0;
+
+    gap: 0.8rem;
+}
+
+
+/*------  Part2 heading ------*/
+
+.Heading
+{
+    width: 100%;
+    text-align: center;
+
+}
+
+.Heading h2
+{
+    width: max-content;
+    max-width: none;
+
+    margin: 0 auto;
+    font-size: var(--LL-FS);
+
+    background: linear-gradient(to right, #106005, #106005, #c3c017,  #f4f01d);
+    background-clip: text;
+    color: transparent;
+
+    white-space: nowrap;
+    overflow-wrap: normal;
+}
+
+
+
+/*------  Line Decoration ------*/
+.Line-decoration {
+    display: flex ;
+    flex-direction: row ;
+    align-items: center ;
+    justify-content: center ;
+
+    margin-bottom: 1rem ;
+}
+
+.Line-decoration span {
+    position: relative ;
+
+    width: min(200px, 30vw) ;
+    height: 2px ;
+
+    background-color: #b7a415 ;
+}
+
+.Line-decoration img {
+    width: 20px ;
+    height: 20px ;
+
+    flex-shrink: 0 ;
+}
+
+
+/*------  Part2 About-Us ------*/
+/* .Part2__About-Us
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:  12px 12px 12px rgba(0, 0, 0, 0.37) , -10px -10px 10px #fdf9f9 ;
+
+    border-radius: 50px;
+
+    height: 300px;
+    width: 300px;
+    padding: 2rem;
+} */
+
+.Part2__About-Us
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    -webkit-appearance: none;
+
+    height: 60px;
+    width: 250px;
+
+    box-shadow: -7px -7px 15px rgba(255, 255, 255, 0.65), 7px 7px 15px rgba(70, 70, 70, 0.12), inset -7px -7px 15px rgba(255, 255, 255, 0.65), inset 7px 7px 15px rgba(70, 70, 70, 0.12);
+
+    border-radius: 40px;
+    border: 5px solid #ececee;
+    outline: none;
+    padding: 0.5rem;
+
+    flex-wrap: nowrap;
+
+    left: 10px;
+    cursor: pointer;
+}
+
+.Part2__About-Us::before, .Part2__About-Us::after
+{
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    transition: 0.3s;
+}
+
+.Part2__About-Us p
+{
+    font-size: 1rem;
+    
+}
+
+.Part2__About-Us button
+{
+    margin-left: auto;
+    padding: 0.4rem;
+    border-radius: 50%;
+
+    width: 40px;
+    font-size: 1rem;
+}
+.Part2__About-Us button:hover
+{
+    box-shadow: var(--Def-BS);
+}
+
+/* =========================================
+   Flower
+========================================= */
+.Part2__Flower {
+    position: static;
+
+    flex: 0 0 var(--flower-width);
+    width: var(--flower-width);
+
+    height: auto;
+
+    align-self: center;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+.Part2__Flower img {
+    position: static;
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+}
+
+/* =========================================
+   Footer
+========================================= */
+.footer
+{
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+
+    border-radius: 50% 50% 0 0;
+
+    width: 100%;
+
+    background: #098b0b93;
+    background: url(../EIS/I-pic/NurseryChildren.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+
+    clip-path: ellipse(180% 100% at 100% 50%);
+
+    margin-top: 2rem;
+    padding: 0.8rem;
+
+    /* bottom: 0; */
+}
+
+.footer::before
+{
+    content: "";
+    position: absolute;
+    border-radius: 50% 50% 0 0;
+    inset: 0;
+    background-color: #0f3716cc;
+}
+
+.footer > *
+{
+    position: relative;
+    z-index: 1;
+}
+
+.contact-information
+{
+    width: 100%;
+    max-width: 900px;
+
+    padding-top: 1.3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-information p
+{
+    width: 100%;
+    max-width: 900px;
+
+    font-size: 1rem;
+
+    text-align: center;
+
+    color: white;
+
+    overflow-wrap: break-word;
+}
+
+.social-media
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-media img
+{
+    height: 30px;
+    width: 30px;
+    flex: 0 0 40px;
+}
+
+.social-media img:last-child
+{
+    object-fit: cover;
+    height: 40px;
+    width: 40px;
+}
+
+.contact-information p
+{
+    font-size: 1rem;
+    align-self: center;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   1041px AND BELOW
+========================================================= */
+
+/*
+    Nothing special needs to happen here.
+
+    The important difference from your previous CSS is that
+    The navigation is NOT allowed to wrap.
+
+    It remains on the right until 956px.
+*/
+
+@media (max-width : 1041px) {
+
+    .nav ul {
+        gap: clamp(.3rem, 1vw, 1rem) ;
+    }
+
+    .nav ul a {
+        padding-inline: clamp(.4rem, 1vw, .8rem) ;
+        font-size: clamp(.75rem, 1.2vw, .9rem) ;
+    }
+
+    .Part1__Hero img{
+        /* width: 55%; */
+        right: 0;
+    }
+
+    .Flower img
+    {
+        top: 80vh;
+        right: -8px;
+    }
+}
+
+/* =========================================================
+   956px AND BELOW
+   NAVIGATION → HAMBURGER
+========================================================= */
+
+@media (max-width : 956px) {
+
+    .Part1__header {
+        position : relative ;
+
+        Min-height : 75px ;
+
+        Justify-content : space-between ;
+
+        z-index: 1000;
+    }
+
+    .Logo {
+
+        margin: auto;
+        width : auto ;
+
+        display : flex ;
+        gap: 1rem;
+
+        position : static ;
+    }
+
+    .Logo img {
+        width : clamp(3rem, 9vw, 4.5rem) ;
+        height : clamp(3rem, 9vw, 4.5rem) ;
+    }
+
+    .Logo p {
+        width: max-content ;
+        max-width: 45vw ;
+
+        text-align: center ;
+
+        font-size: clamp(.8rem, 3vw, 1.3rem);
+    }
+
+    .nav {
+        position: absolute ;
+
+        top: 100% ;
+        left: 0 ;
+
+        width: 100% ;
+
+        margin: 0 ;
+
+        display: none ;
+
+        max-height: 0 ;
+
+        background: white ;
+
+        z-index: 1001;
+    }
+
+    .nav ul {
+        display: flex;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        width: 80%;
+
+        margin: auto;
+
+        padding: .5rem 0 1rem;
+    }
+
+    .nav ul a {
+        width: 100% ;
+
+        padding: .9rem 1rem ;
+
+        text-align: center ;
+
+        white-space: normal ;
+
+        font-size: 1rem ;
+    }
+
+    .nav ul a:hover::after {
+        width: 0;
+    }
+
+    .nav a[aria-current="page"]::after {width: 0; }
+
+    .hamburger
+    {
+        display: block;
+        margin-left: auto;
+    }
+
+    .Part1__header:has(#menu-toggle:checked) .nav
+    {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        max-height: 500px;
+    }
+    #menu-toggle:checked + .hamburger .line1
+    {
+        transform: translateY(4px) rotate(42.5deg);
+    }
+    #menu-toggle:checked + .hamburger .line2
+    {
+        opacity: 0;
+    }
+    #menu-toggle:checked + .hamburger .line3
+    {
+        transform: translateY(-4px) rotate(-42.5deg);
+    }
+
+    /* .Part2__container, .Heading h2
+    {
+        overflow: visible;
+    }
+
+    .Heading
+    {
+        width: 100%;
+        text-align: center;
+    } */
+
+    .Heading h2
+    {
+        display: block;
+        width: 100%;
+        /* max-width: none; */
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+}
+
+/* =========================================================
+   818px AND BELOW
+========================================================= */
+
+@media (max-width : 818px) {
+    .Logo p 
+    {
+        width: min-content;
+    }
+    
+    .Part1__What-we-stand-for
+    {
+        width: 60%;
+    }
+
+    .Heading h2
+    {
+        width: 100%; 
+        white-space: normal;
+    }
+
+    /* .Flower img
+    {
+        top: 5px;
+    } */
+    .Part1__Hero img{
+        width: 250px;
+        max-width: 46%;
+        /* top: -10%;
+        right: -10%; */
+    }
+}
+
+
+/* =========================================================
+   700px AND BELOW
+========================================================= */
+
+@media (max-width : 700px) {
+
+    .Part1 {
+        position: relative;
+
+        width: 100vw;
+        height: 580px;
+
+        /* background-image: url(../EIS/I-pic/Little_NurseryGirl8.png); */
+
+        background-size: auto 100%;
+        background-repeat: no-repeat ;
+        background-position: 82% bottom;
+
+        z-index: auto;
+    }
+
+    
+    .Part1::before{
+        content: "";
+
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        width: 100vw;
+
+        background: linear-gradient(to right, 
+        rgba(250, 240, 204, 0.767) 0%, 
+        rgba(248, 237, 204, 0.685) 25%,
+        rgba(235, 220, 176, 0.72) 50%,
+        rgba(255, 248, 225, 0.58) 75%,
+        rgba(255, 248, 225, 0.45) 100%);
+
+        z-index: -1;
+    }
+    
+    .Part1__header {
+        padding: 1rem ;
+    }
+
+    .Logo p {
+        max-width: 42vw ;
+
+        font-size: clamp(.75rem, 3vw, 1rem) ;
+    }
+
+    .Part1__What-we-stand-for { 
+        margin-top: 2rem;     
+        text-shadow: 0 1px 2px rgba(29, 19, 19, 0.65);
+        width: 55%;
+    }
+    
+    .Part1__Hero img{
+        /* width: 70%; */
+        clip-path: inset(0 0 0 0);
+    }
+
+    .Flower
+    {
+        top: 40%;
+        width: 100%;
+    }
+
+    .Flower img
+    {
+        right: 2;
+        width: clamp(150px, 32vw, 210px);
+    }
+        
+    /* .Part1__What-we-stand-for > .AboutUs
+    {
+        width: 100%;
+        max-width: .92rem;
+
+        font-size: 1rem;
+        line-height: 1.55;
+        
+        overflow-wrap: break-word;
+    } */
+}
+
+
+/* =========================================================
+   620px AND BELOW
+========================================================= */
+@media (max-width : 670px) {
+    .Part1{
+        height: min(580px, 150vw);
+        background-image: linear-gradient(to right,
+                        rgba(214, 190, 130, 0.88) 0%
+                        rgba(226, 207, 157, 0.78) 35%
+                        rgba(200, 190, 140, 0.58) 65%
+                        rgba(180, 170, 125, 0.68) 100%), url(../EIS/I-pic/Little_NurseryGirl8.png);
+        background-size: auto 100%;
+        background-position: center bottom;
+    }
+    
+    .Part1__What-we-stand-for{
+        margin-top: 40px;
+        padding: 5px 36px 1rem;
+    }
+
+    .Part1__Hero img{
+        top: -4%;
+        width: 55%;
+        clip-path: inset(0 0 0 0);
+    }
+
+    .Heading h2
+    {
+        width: 100%; 
+        max-width: 100%;
+
+        font-size: clamp(2rem, 4.5vw, 2rem);
+
+        margin: 0 auto;
+    }
+
+
+    
+
+    /* .Part2__Flower img
+    {
+        display: none;
+    } */
+}
+
+
+/* =========================================================
+   590px AND BELOW
+========================================================= */
+
+@media (max-width : 590px) {
+    /* .Part1__What-we-stand-for h2
+    {
+        position: relative;
+        width: fit-content;
+        padding: 0.8rem;
+        border-radius: 10px;
+        background: white;
+        z-index: 0;
+    }
+
+    .Part1__What-we-stand-for h2::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -3px;
+    
+        width: 40px;
+        aspect-ratio: 1;
+        border-radius: 10px;
+    
+        clip-path: polygon(0 0, 100% 0, 100% 100%);
+    
+        z-index: 2;
+        pointer-events: none;
+        filter: drop-shadow(-2px 3px 2px
+            rgba(0, 0, 0, 0.12));
+        
+        background: rgb(217, 217, 217);
+    } */
+    .Part2::before {
+        content: "";
+    
+        flex: 0 0 0;
+    }
+    .Part2__container{
+        align-self: center;
+        justify-self: center;
+    }
+    .Part2__Flower
+    {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   500px AND BELOW
+========================================================= */
+
+@media (max-width: 500px) {
+    
+    .Part1 {
+        position: relative;
+
+        width: 100vw;
+        height: auto;
+
+        /* background-image: url(../EIS/I-pic/Little_NurseryGirl8.png); */
+
+        background-size: auto 100%;
+        background-repeat: no-repeat ;
+        background-position: 82% bottom;
+
+        z-index: auto;
+    }
+
+    
+    .Part1::before{
+        content: "";
+
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        width: 100vw;
+
+        background: linear-gradient(to right, 
+        rgba(249, 234, 182, 0.767) 0%, 
+        rgba(226, 205, 84, 0.77) 25%,
+        rgba(226, 205, 84, 0.692) 50%,
+        rgba(160, 147, 29, 0.315) 75%,
+        /* rgba(235, 220, 176, 0.72) 50%,
+        rgba(255, 248, 225, 0.58) 75%, */
+        rgba(255, 248, 225, 0.45) 100%);
+
+        z-index: -1;
+    }
+    .Part1__header {
+        padding: .75rem ;
+    }
+
+    .Logo img {
+        width: 3rem ;
+        height: 3rem ;
+    }
+
+    .Logo p {
+        font-size: clamp(.7rem, 3.2vw, .9rem);
+    }
+
+    .Part1__What-we-stand-for
+    {
+        margin-top: 1rem;
+        width: 90%;
+    }
+/* 
+    .Part1__What-we-stand-for h2
+    {
+        position: relative;
+        width: fit-content;
+        padding: 0.8rem;
+        border-radius: 10px;
+        background: white;
+        z-index: 0;
+    }
+    
+    .Part1__What-we-stand-for h2::before {
+        margin-top: 2rem;
+        margin-right: 20px;
+        border-radius: 10px;
+        content: "";
+        position: absolute;
+        top: 2px;
+        right: -3px;
+    
+        width: 40px;
+        aspect-ratio: 1;
+    
+        clip-path: polygon(0 0, 100% 0, 100% 100%);
+    
+        z-index: 2;
+        pointer-events: none;
+        filter: drop-shadow(-2px 3px 2px
+            rgba(0, 0, 0, 0.12));
+        
+            background: rgb(217, 217, 217);
+    } */
+
+    .line{
+        background-color: #b7a415;
+    }
+    
+    .Part1__Hero
+    {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .Part1__What-we-stand-for{
+        padding: 20px 1rem 1rem;
+    }
+
+    .Part1__Hero img{
+        /* display: none; */
+        /* margin-top: 4rem; */
+        /* left: -10%; */
+        position: relative;
+
+        width: 150px;
+        max-width: 36%;
+        clip-path: inset(0 0 0 0); 
+        z-index: 2;  
+    }
+
+    .buttons
+    {
+        gap: .7rem;
+    }
+
+    .buttons button
+    {
+        padding: .75rem 1,15rem;
+        font-size: .9rem;
+    }
+
+    .Part2::before{
+        flex: 0;
+    }
+
+    .Part2__About-Us{
+        width: min(250px, 80vw);
+        height: 56px;
+    }
+
+    .Part2__About-Us p{
+        font-size: .95rem;
+    }
+
+    .Part2__About-Us button{
+        width: 36px;
+        height: 36px;
+        padding: 0.3rem;
+    }
+
+    .Part2__Flower
+    {
+        display: none;
+    }
+
+    .footer{
+        min-height: 170px;
+
+        padding:  2rem 1rem 1.25rem;
+        gap: 0.8rem;
+
+        clip-path: ellipse(220% 100% at 100% 50%);
+
+        width: 100%;
+    }
+
+    .contact-information{
+        font-size: 0.9rem;
+        line-height: 1.45;
+    }
+
+    .social-media{
+        gap: .7rem;
+    }
+
+    .social-media img{
+        width: 34px;
+        height: 34px;
+
+        flex-basis: 34px;
+    }
+}
+
+/* =========================================================
+   380px AND BELOW
+========================================================= */
+
+@media (max-width : 450px) {
+    .Part1__What-we-stand-for{
+        width: 65%;
+    }
+    .Part1__What-we-stand-for h2{
+        font-size: 1.3rem
+    }
+    .gold-text{
+        white-space: normal;
+    }
+    .Part1__Hero img{
+        position: relative;
+
+        width: 120px;
+        max-width: 46%;
+        clip-path: inset(0 0 0 0); 
+        z-index: 2;  
+    }
+}
+
+/* =========================================================
+   380px AND BELOW
+========================================================= */
+
+@media (max-width : 350px) {
+    .Part1__Hero img{
+        right: 4%;
+    }
+}
+
+/* =========================================================
+   HEIGHT
+========================================================= */
+
+@media (max-height: 1369px) {
+    .Part2{
+        margin-top: 5rem;
+    }
+    .Flower img{
+        top: 60vh;
+    }
+}
+

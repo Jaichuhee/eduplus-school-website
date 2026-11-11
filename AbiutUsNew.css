@@ -1,0 +1,1407 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+img,
+picture {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    /*========== FONT SIZES ==========*/
+
+    --XL-FS: clamp(3.5rem, 8vw, 6rem);
+    --X-FS: clamp(2.5rem, 6vw, 5rem);
+    --L-FS: clamp(2rem, 5vw, 3.5rem);
+    --LL-FS: clamp(1.8rem, 4vw, 2.5rem);
+    --H2LL-FS: clamp(2.5rem, 4vw, 4rem);
+    --M-FS: clamp(1.25rem, 3vw, 2rem);
+    --S-FS: clamp(1rem, 1.5vw, 1.25rem);
+    --XS-FS: 1.5rem;
+    --XXS-FS: 1rem;
+
+
+    /*========== SPACING ==========*/
+
+    --XXL-PS: 3rem;
+    --XL-PS: 2.5rem;
+    --X-PS: 2rem;
+    --L-PS: 1.5rem;
+    --M-PS: 1rem;
+    --S-PS: .5rem;
+    --XS-PS: .25rem;
+
+
+    /*========== COLORS ==========*/
+
+    --BG-color: linear-gradient(
+        to bottom,
+        #dedede,
+        #e5faff,
+        #b1e4ff,
+        #ca1eaa
+    );
+
+    --Part1header-BG: linear-gradient(
+        to right,
+        #dedede,
+        white,
+        #dedede
+    );
+
+    --Title-BG: linear-gradient(
+        to left,
+        #345364,
+        #316885,
+        #3e80a4,
+        #6ea3bf
+    );
+
+    --BGdrop: linear-gradient(
+        to left,
+        rgba(52,83,100,.6),
+        rgba(49,104,133,.6),
+        rgba(62,128,164,.6),
+        rgba(110,163,191,.6)
+    );
+
+    --Logo-Colour: #043b1a;
+    --Header-Nav: #106005;
+
+    --Part2: rgba(255,255,255,.86);
+
+    --IceStickBG: #000;
+
+    --White: #fff;
+    --Black: #000;
+
+    --Green: #11ac4a4f;
+    --Dark-Green: #04421d;
+    --Light-Green: #066e06;
+
+    --Yellow: #ffd000;
+
+
+    /*========== SHADOWS ==========*/
+
+    --Def-BS: 0 0 10px rgba(0,0,0,.45);
+
+    --DefL-BS: 0 0 10px rgba(255,255,255,.5);
+
+    --Inset-BS:
+        -7px -7px 10px rgba(68,67,67,.25),
+         7px  7px 15px rgba(70,70,70,.12),
+         inset -7px -7px 15px rgba(255,255,255,.65),
+         inset 7px 7px 15px rgba(70,70,70,.12);
+
+    --AboutUs-BS:
+        20px 20px 50px rgba(0,0,0,.35);
+
+
+    /*========== BORDER RADIUS ==========*/
+
+    --Radius-S: .5rem;
+    --Radius-M: 1rem;
+    --Radius-L: 2rem;
+    --Radius-XL: 3rem;
+
+
+    /*========== TRANSITION ==========*/
+
+    --Transition: .3s ease;
+}
+
+
+/* =========================================================
+   GENERAL STYLES
+========================================================= */
+
+body {
+
+    display: flex;
+    flex-flow: column nowrap;
+
+    width: 100%;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background: var(--White);
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: var(--Logo-Colour);
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+p {
+    font-size: var(--S-FS);
+    line-height: 1.7;
+}
+
+a {
+    transition: var(--Transition);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    transition: var(--Transition);
+}
+
+button:hover,
+a:hover {
+    opacity: .9;
+}
+
+
+/* =========================================================
+   BODY CONTAINER
+========================================================= */
+
+.body-container {
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 100vh;
+
+    background-image: url(../EIS/I-pic/mainBackground.png);
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    /* padding-bottom: clamp(3rem, 7vw, 7rem); */
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: min(92%, 1400px);
+
+    margin-inline: auto;
+
+    gap: 1rem;
+
+    padding: clamp(.75rem, 2vw, 1.5rem);
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.header__Logo {
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    gap: clamp(.5rem, 1.5vw, 1rem);
+
+    width: clamp(11rem, 22vw, 20rem);
+
+    flex-shrink: 0;
+
+    color: var(--Logo-Colour);
+}
+
+.header__Logo img {
+
+    width: clamp(3.5rem, 6vw, 6rem);
+    height: clamp(3.5rem, 6vw, 6rem);
+
+    flex-shrink: 0;
+}
+
+.header__Logo p {
+
+    align-self: center;
+
+    font-size: clamp(.8rem, 1.5vw, 1.3rem);
+
+    line-height: 1.1;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.header__nav {
+
+    display: block;
+
+    margin-left: auto;
+}
+
+.header__nav ul {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: clamp(.4rem, 1.8vw, 2rem);
+
+    flex-wrap: nowrap;
+}
+
+.header__nav ul a {
+
+    position: relative;
+
+    display: block;
+
+    padding:
+        clamp(.4rem, 1vw, .8rem)
+        clamp(.5rem, 1.4vw, 1.2rem);
+
+    font-size: clamp(.8rem, 1.3vw, 1rem);
+
+    white-space: nowrap;
+}
+
+.header__nav ul a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 15%;
+    bottom: 0;
+
+    width: 0;
+    height: 3px;
+
+    background-color: var(--Green);
+
+    transition: width .3s ease;
+}
+
+.header__nav ul a:hover {
+
+    color: var(--Green);
+}
+
+.header__nav ul a:hover::after {
+
+    width: 70%;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+#menu-toggle {
+    display: none;
+}
+
+.hamburger {
+
+    cursor: pointer;
+
+    display: none;
+}
+
+.hamburger svg {
+
+    width: 30px;
+    height: 30px;
+}
+
+.hamburger line {
+
+    fill: none;
+
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+
+    transform-box: view-box;
+    transform-origin: center;
+
+    transition:
+        transform .3s ease,
+        opacity .2s ease;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main {
+
+    position: relative;
+
+    width: min(92%, 1200px);
+
+    margin-inline: auto;
+
+    margin-top: clamp(1rem, 3vw, 3rem);
+}
+
+
+/* =========================================================
+   HERO / DIAMOND SECTION
+========================================================= */
+
+.main-content {
+
+    position: relative;
+
+    width: min(100%, 900px);
+
+    /* min-height: clamp(300px, 40vw, 500px); */
+
+    display: flex;
+    align-items: flex-start;
+
+    /* margin-bottom: clamp(2rem, 5vw, 4rem); */
+}
+
+
+/* =========================================================
+   DIAMOND
+========================================================= */
+
+.diamond-frame {
+
+    position: relative;
+
+    width: clamp(220px, 30vw, 350px);
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    clip-path: polygon(
+        50% 0,
+        100% 50%,
+        50% 100%,
+        0 50%
+    );
+
+    z-index: 10;
+}
+
+.diamond-frame img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    z-index: 10;
+}
+
+
+/* =========================================================
+   YELLOW TRIANGLE
+========================================================= */
+
+.triangle {
+
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    border:
+        clamp(80px, 12vw, 140px)
+        solid transparent;
+
+    border-bottom-color: var(--Yellow);
+
+    top: clamp(20px, 3vw, 30px);
+    left: clamp(120px, 18vw, 215px);
+
+    transform: rotate(180deg);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   ABOUT SECTION
+========================================================= */
+
+.About-us {
+
+    position: relative;
+
+    width: 65%;
+
+    margin-left: auto;
+    transform: translate(clamp(-50px, -20vw, 300px), clamp(-50px, -8vw, 0px));
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   ABOUT US HEADING
+========================================================= */
+
+.About-us h1 {
+
+    position: relative;
+
+    display: inline-block;
+
+    font-size: clamp(2rem, 5vw, 4rem);
+
+    color: var(--Dark-Green);
+
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   GREEN CIRCLE UNDER ABOUT US HEADING
+========================================================= */
+
+.About-us .AboutUs-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: clamp(100px, 16vw, 170px);
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background: var(--Green);
+
+    /*
+       The circle sits below the heading
+       and reaches slightly into the diamond area.
+    */
+
+    left: clamp(-40px, -10vw, -20px);
+    top: clamp(-10px, -1.5vw, 55px);
+
+    z-index: -2;
+}
+
+.About-us .AboutUs-header::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: clamp(100px, 14vw, 170px);
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background:#ffd000;
+    /* background: var(--Green); */
+
+    /*
+       The circle sits below the heading
+       and reaches slightly into the diamond area.
+    */
+
+    left: clamp(-40px, -10vw, -20px);
+    top: clamp(-10px, -1.5vw, 55px);
+
+    z-index: -2;
+}
+
+
+/* =========================================================
+   ABOUT TEXT
+========================================================= */
+
+.About-us > p {
+
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    
+
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+
+    color: var(--Light-Green);
+
+    font-family:
+        'Gill Sans',
+        'Gill Sans MT',
+        Calibri,
+        'Trebuchet MS',
+        sans-serif;
+
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+
+    line-height: 1.75;
+
+    z-index: 4;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   STUDENT IMAGE
+========================================================= */
+
+.El-ps {
+
+    float: right;
+
+    width: clamp(180px, 35%, 350px);
+
+    margin:
+        0
+        0
+        1.5rem
+        2rem;
+}
+
+.El-ps img {
+
+    width: 120%;
+    height: auto;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   MISSION / VISION HEADINGS
+========================================================= */
+
+.mission-heading,
+.vision-heading {
+
+    clear: both;
+
+    color: var(--Dark-Green);
+
+    font-size: clamp(1.7rem, 3.5vw, 2.8rem);
+
+    margin-top: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+}
+
+.vision-heading {
+
+    margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+
+/* =========================================================
+   MISSION / VISION TEXT
+========================================================= */
+
+.About-us .vision,
+.About-us .mission {
+
+    width: 100%;
+
+    color: var(--Light-Green);
+
+    font-family:
+        'Gill Sans',
+        'Gill Sans MT',
+        Calibri,
+        'Trebuchet MS',
+        sans-serif;
+
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+
+    line-height: 1.75;
+
+    margin-bottom: 1rem;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    gap: 1rem;
+
+    width: 100%;
+
+    min-height: 100px;
+
+    padding: 1rem;
+
+    margin-top: auto;
+
+    background-color: #043b1a;
+
+    bottom: 0;
+
+    color: white;
+}
+
+
+
+/* =========================================
+   CONTACT INFORMATION
+========================================= */
+
+.contact-information{
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.contact-information p{
+
+    width: 100%;
+
+    max-width: 900px;
+
+    font-size: 1rem;
+
+    /* line-height: 1.5; */
+
+    color: white;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================
+   SOCIAL MEDIA
+========================================= */
+
+.social-media{
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 1rem;
+
+    flex-wrap: wrap;
+}
+
+.social-media img{
+
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+}
+
+.social-media img:last-child{
+
+    object-fit: cover;
+
+    width: 40px;
+    height: 40px;
+}
+
+
+/* =========================================================
+   1041px AND BELOW
+========================================================= */
+
+@media (max-width: 1041px) {
+
+    .header__nav ul {
+
+        gap: clamp(.2rem, 1vw, 1rem);
+    }
+
+    .header__nav ul a {
+
+        padding-inline:
+            clamp(.35rem, 1vw, .8rem);
+
+        font-size:
+            clamp(.75rem, 1.2vw, .9rem);
+    }
+
+}
+
+
+/* =========================================================
+   941px AND BELOW
+   NAVIGATION → HAMBURGER
+========================================================= */
+
+@media (max-width: 941px) {
+
+    .header {
+
+        min-height: 75px;
+
+        justify-content: space-between;
+    }
+
+    .header__Logo {
+
+        width: auto;
+
+        margin-inline: auto;
+
+        gap: .75rem;
+    }
+
+    .header__Logo img {
+
+        width: clamp(3rem, 9vw, 4.5rem);
+        height: clamp(3rem, 9vw, 4.5rem);
+    }
+
+    .header__Logo p {
+
+        width: max-content;
+
+        max-width: 45vw;
+
+        text-align: center;
+
+        font-size: clamp(.8rem, 3vw, 1.3rem);
+    }
+
+    .header__nav {
+
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        margin: 0;
+
+        background: var(--White);
+
+        box-shadow: var(--Def-BS);
+
+        z-index: 1001;
+    }
+
+    .header__nav ul {
+
+        display: flex;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        width: min(80%, 500px);
+
+        margin-inline: auto;
+
+        padding: .5rem 0 1rem;
+    }
+
+    .header__nav ul a {
+
+        width: 100%;
+
+        padding: .9rem 1rem;
+
+        text-align: center;
+
+        white-space: normal;
+
+        font-size: 1rem;
+    }
+
+    .header__nav ul a:hover::after {
+
+        width: 0;
+    }
+
+    .hamburger {
+
+        display: block;
+
+        margin-left: auto;
+    }
+
+    .header:has(#menu-toggle:checked) .header__nav {
+
+        display: flex;
+    }
+
+    #menu-toggle:checked + .hamburger .line1 {
+
+        transform:
+            translateY(4px)
+            rotate(42.5deg);
+    }
+
+    #menu-toggle:checked + .hamburger .line2 {
+
+        opacity: 0;
+    }
+
+    #menu-toggle:checked + .hamburger .line3 {
+
+        transform:
+            translateY(-4px)
+            rotate(-42.5deg);
+    }
+
+}
+
+
+/* =========================================================
+   818px AND BELOW
+========================================================= */
+
+@media (max-width: 818px) {
+
+    .header__Logo p {
+
+        width: min-content;
+    }
+
+    .diamond-frame {
+
+        width: clamp(220px, 40vw, 320px);
+    }
+
+    .triangle {
+
+        left: 50%;
+
+        transform:
+            translateX(-10%)
+            rotate(180deg);
+    }
+
+    .AboutUs-header {
+
+        margin-left: 2.5rem;
+    }
+}
+
+
+/* =========================================================
+   700px AND BELOW
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .header {
+
+        padding: 1rem;
+    }
+
+    .header__Logo p {
+
+        max-width: 42vw;
+
+        font-size:
+            clamp(.75rem, 3vw, 1rem);
+    }
+
+    .main {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 5%;
+    }
+
+    .main-content {
+        box-sizing: border-box;
+        min-height: auto;
+        width: 100%;
+        margin-bottom: 2rem;
+        margin-left: 0;
+
+        justify-content: center;
+    }
+
+    .diamond-frame {
+        margin-left: 40px;
+        width: clamp(200px, 40vw, 300px);
+    }
+
+    .triangle {
+
+        border-width:
+            clamp(70px, 14vw, 110px);
+
+        left: 50%;
+    }
+
+    .About-us {
+        margin-top: 20px;
+    }
+
+    .AboutUs-header {
+        font-size: clamp(2rem, 8vw, 3rem);
+        padding-right: 0.5rem;
+        margin-left: 0;
+    }
+
+    .About-us h1::after {
+
+        width: clamp(90px, 20vw, 130px);
+
+        left: -15px;
+        top: 40px;
+    }
+
+    /* .MissionVision {
+        position: relative;
+
+        width: fit-content;
+
+        height: auto;
+
+        padding:3rem;
+
+        background: rgba(255,255,255,.18);
+
+        border: 1px solid rgba(84, 84, 84, 0.35);
+
+        backdrop-filter: blur(16px);
+
+        -webkit-backdrop-filter: blur(16px);
+
+        border-radius: 1.5rem;
+
+        box-shadow: 0 25px 60px rgba(0,0,0,.25);
+
+        overflow:hidden;
+
+        isolation: isolate;
+
+        z-index: -1;
+    } */
+
+    .MissionVision::before{
+        content:"";
+    
+        position:absolute;
+    
+        top:0;
+        right:0;
+    
+        width: 60px;
+        height: 60px;
+    
+        background:#0bbc17;
+    
+        clip-path:polygon(100% 0,100% 100%,0 0);
+    
+        border-radius:0 1.5rem 0 0;
+    }
+    
+    .MissionVision::after{
+    
+        content: "";
+    
+        position:absolute;
+    
+        bottom:0;
+        left:0;
+    
+        width: 60px;
+        height: 60px;
+    
+        background:#0bbc17;
+    
+        clip-path:polygon(0 100%,100% 100%,0 0);
+    
+        border-radius:0 0 0 1.5rem;
+    }
+/* 
+
+    /* Keep the new wrapper from changing desktop layout */
+    .MissionVision-wrap {
+        display: contents;
+    }
+
+    /* Creates the stacking context for the picture and panel */
+    .MissionVision-wrap {
+        display: block;
+        position: relative;
+        isolation: isolate;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Girl's picture: behind the entire MissionVision panel */
+    .MissionVision-wrap > .El-ps {
+        position: absolute;
+        top: 8%;
+        right: 3%;
+        left: auto;
+
+        float: none;
+        width: 85%;
+        margin: 0;
+
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .MissionVision-wrap > .El-ps img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    /* Panel sits above the image */
+    .MissionVision-wrap > .MissionVision {
+        position: relative;
+        z-index: 1;
+
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+
+        background: rgba(255, 255, 255, 0.601);
+        backdrop-filter: blur(1px);
+
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 1.5rem;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+    }
+
+    .MissionVision {
+        padding: 2rem;
+    }
+}
+
+
+/* =========================================================
+   600px AND BELOW
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .main-content {
+
+        min-height: 280px;
+    }
+
+    .diamond-frame {
+
+        width: min(60vw, 260px);
+    }
+
+    .triangle {
+
+        border-width:
+            clamp(60px, 15vw, 90px);
+    }
+
+    .About-us {
+
+        width: 70%;
+    }
+
+    .About-us > p {
+
+        font-size: 1rem;
+
+        line-height: 1.7;
+    }
+
+    .El-ps {
+
+        width: 48%;
+
+        margin:
+            0
+            0
+            1rem
+            1rem;
+    }
+
+    .mission-heading,
+    .vision-heading {
+
+        font-size: 1.8rem;
+    }
+
+    .About-us .vision,
+    .About-us .mission {
+
+        font-size: 1rem;
+    }
+}
+
+
+/* =========================================================
+   500px AND BELOW
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .header {
+
+        padding: .75rem;
+    }
+
+    .header__Logo {
+
+        gap: .5rem;
+    }
+
+    .header__Logo img {
+
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .header__Logo p {
+
+        font-size:
+            clamp(.7rem, 3.2vw, .9rem);
+    }
+
+
+   /* Diamond */
+
+    .main-content {
+
+        min-height: 240px;
+
+        margin-bottom: 1.5rem;
+    }
+
+    .diamond-frame {
+
+        width: min(58vw, 230px);
+    }
+
+    .triangle {
+
+        border-width:
+            clamp(50px, 14vw, 75px);
+
+        left: 48%;
+        top: 15px;
+    }
+
+
+    /* About */
+
+    .About-us {
+
+        width: 80%;
+    }
+
+    .About-us h1 {
+
+        font-size: 2rem;
+
+        margin-bottom: 1.5rem;
+    }
+
+    .About-us h1::after {
+
+        width: 90px;
+
+        left: -10px;
+        top: 32px;
+    }
+
+
+    /* Student image */
+
+    .El-ps {
+
+        float: none;
+
+        width: min(75%, 260px);
+
+        margin:
+            1.5rem
+            auto;
+    }
+
+
+    /* Text */
+
+    .About-us > p {
+
+        font-size: .98rem;
+
+        text-align: left;
+    }
+
+    .mission-heading,
+    .vision-heading {
+
+        font-size: 1.7rem;
+
+        margin-top: 2rem;
+    }
+
+    .About-us .vision,
+    .About-us .mission {
+
+        font-size: .98rem;
+
+        line-height: 1.7;
+    }
+}
+
+
+/* =========================================================
+   380px AND BELOW
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .header__Logo p {
+
+        font-size: .68rem;
+    }
+
+    .hamburger svg {
+
+        width: 26px;
+        height: 26px;
+    }
+
+    .main-content {
+
+        min-height: 210px;
+    }
+
+    .diamond-frame {
+
+        width: 190px;
+    }
+
+    .triangle {
+
+        border-width: 50px;
+    }
+
+    .About-us h1 {
+
+        font-size: 1.8rem;
+    }
+
+    .About-us h1::after {
+
+        width: 75px;
+
+        top: 30px;
+    }
+
+    .About-us > p,
+    .About-us .vision,
+    .About-us .mission {
+
+        font-size: .92rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .About-us {
+
+        width: 80%;
+    }
+}

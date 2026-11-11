@@ -1,0 +1,1318 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+* ::before,
+* ::after {
+    margin: 0 ;
+    padding: 0 ;
+    box-sizing: border-box ;
+}
+
+html {
+    scroll-behavior: smooth ;
+    font-size: 100% ;
+    width: 100% ;
+}
+
+body {
+    width: 100% ;
+    min-height: 100svh ;
+    overflow-x: hidden ;
+    line-height: 1.5 ;
+}
+
+img,
+picture {
+    display: block ;
+    max-width: 100% ;
+    height: auto ;
+}
+
+a {
+    text-decoration: none ;
+    color: inherit ;
+}
+
+ul,
+ol {
+    list-style: none ;
+    margin: 0 ;
+    padding: 0 ;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit ;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+    /*========== FONT SIZES ==========*/
+
+    --XL-FS: clamp(3.5rem, 8vw, 6rem) ;
+    --X-FS: clamp(2.5rem, 6vw, 5rem) ;
+    --L-FS: clamp(2rem, 5vw, 3.5rem) ;
+    --LL-FS: clamp(1.8rem, 4vw, 2.5rem) ;
+    --H2LL-FS: clamp(2rem, 5vw, 4rem) ;
+    --M-FS: clamp(1.25rem, 3vw, 2rem) ;
+    --S-FS: clamp(1.1rem, 2.3vw, 1.7rem) ;
+    --XS-FS: clamp(1rem, 2vw, 1.5rem) ;
+    --XXS-FS: clamp(.95rem, 1.6vw, 1.1rem) ;
+
+
+    /*========== SPACING ==========*/
+
+    --XXL-PS: 3rem ;
+    --XL-PS: 2.5rem ;
+    --X-PS: 2rem ;
+    --L-PS: 1.5rem ;
+    --M-PS: 1rem ;
+    --S-PS: .5rem ;
+    --XS-PS: .25rem ;
+
+
+    /*========== COLORS ==========*/
+
+    --BG-color: linear-gradient(
+        to bottom,
+        #dedede,
+        #e5faff,
+        #b1e4ff,
+        #ca1eaa
+    ) ;
+
+    --Part1header-BG: linear-gradient(
+        to right,
+        #dedede,
+        white,
+        #dedede
+    ) ;
+
+    --Title-BG: linear-gradient(
+        to left,
+        #345364,
+        #316885,
+        #3e80a4,
+        #6ea3bf
+    ) ;
+
+    --Bgdrop: linear-gradient(
+        to left,
+        rgba(52,83,100,.6),
+        rgba(49,104,133,.6),
+        rgba(62,128,164,.6),
+        rgba(110,163,191,.6)
+    ) ;
+
+    --Logo-Colour: #043b1a ;
+    --Header-Nav: #106005 ;
+    --Part2: rgba(255,255,255,.86) ;
+    --IceStickBG: #000 ;
+    --White: #fff ;
+    --Black: #000 ;
+
+
+    /*========== SHADOWS ==========*/
+
+    --Def-BS: 0 0 10px rgba(0,0,0,.45) ;
+
+    --DefL-BS: 0 0 10px rgba(255,255,255,.5) ;
+
+    --Inset-BS:
+        -7px -7px 10px rgba(68,67,67,.25),
+         7px  7px 15px rgba(70,70,70,.12),
+        Inset -7px -7px 15px rgba(255,255,255,.65),
+        Inset  7px  7px 15px rgba(70,70,70,.12) ;
+
+    --AboutUs-BS:
+        20px 20px 50px rgba(0,0,0,.35) ;
+
+
+    /*========== BORDER RADIUS ==========*/
+
+    --Radius-S: .5rem ;
+    --Radius-M: 1rem ;
+    --Radius-L: 2rem ;
+    --Radius-XL: 3rem ;
+
+
+    /*========== TRANSITION ==========*/
+
+    --Transition: .3s ease ;
+
+
+    /*========== TRIANGLE FALLBACK ==========*/
+
+    --triangle-size: clamp(55px, 10vw, 140px) ;
+}
+
+
+/* =========================================================
+   GENERAL STYLES
+========================================================= */
+
+body {
+    display: flex ;
+    flex-flow: column nowrap ;
+
+    width: 100% ;
+    min-width: 0 ;
+    min-height: 100svh ;
+
+    overflow-x: hidden ;
+
+    background: var(--White) ;
+
+    font-family: Arial, Helvetica, sans-serif ;
+    color: #043b1a ;
+}
+
+.body-container {
+    position: relative ;
+
+    width: 100% ;
+    min-height: 100svh ;
+
+    background-image: url(../EIS/I-pic/mainBackground.png) ;
+    background-position: center ;
+    Background-size: cover ;
+    background-repeat: no-repeat ;
+}
+
+.header,
+.main,
+.footer {
+    width: min(90%, 1400px) ;
+    margin-inline: auto ;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2 ;
+    font-weight: 700 ;
+}
+
+p{
+    font-size: var(--S-FS) ;
+    line-height: 1.7 ;
+}
+
+a{
+    transition: var(--Transition) ;
+}
+
+button {
+    cursor: pointer ;
+    border: none ;
+    transition: var(--Transition) ;
+}
+
+button:hover,
+a:hover {
+    opacity: .9 ;
+}
+
+
+/* =========================================================
+   HEADER BACKGROUND DECORATION
+========================================================= */
+
+.body-container::before {
+    content: "" ;
+
+    position: absolute ;
+    top: 0 ;
+    left: 0 ;
+
+    width: 100% ;
+    height: clamp(150px, 25vw, 300px) ;
+
+    z-index: 5 ;
+    pointer-events: none ;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    position: relative ;
+
+    display: flex ;
+    flex-direction: row ;
+    align-items: center ;
+
+    gap: 1rem ;
+
+    padding: var(--L-PS) ;
+
+    z-index: 20 ;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.header__Logo {
+    display: flex ;
+    flex-flow: row nowrap ;
+    align-items: center ;
+
+    gap: 1rem ;
+
+    width: clamp(11rem, 22vw, 20rem) ;
+
+    flex-shrink: 0 ;
+
+    color: var(--Logo-Colour) ;
+}
+
+.header__Logo img {
+    width: clamp(3.5rem, 6vw, 6rem) ;
+    height: clamp(3.5rem, 6vw, 6rem) ;
+
+    flex-shrink: 0 ;
+}
+
+.header__Logo p {
+    align-self: center ;
+
+    font-size: clamp(.95rem, 1.6vw, 1.3rem) ;
+    line-height: 1.1 ;
+    font-weight: bold ;
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.header__nav {
+    display: block;
+    margin-left: auto ;
+}
+
+.header__nav ul {
+    display: flex ;
+    flex-direction: row ;
+    align-items: center ;
+
+    gap: clamp(.6rem, 2vw, 2rem) ;
+
+    flex-wrap: nowrap ;
+}
+
+.header__nav ul a {
+    position: relative ;
+
+    display: block ;
+
+    padding:
+        clamp(.4rem, 1vw, .8rem)
+        clamp(.6rem, 1.6vw, 1.4rem) ;
+
+    font-size: clamp(.85rem, 1.3vw, 1rem) ;
+
+    white-space: nowrap ;
+}
+
+.header__nav ul a ::after {
+    content: "" ;
+
+    position: absolute ;
+
+    left: 0 ;
+    bottom: 0 ;
+
+    width: 0 ;
+    height: 3px ;
+
+    background-color: #16803c ;
+
+    transition: width .3s ease ;
+}
+
+.header__nav ul a :hover {
+    color: #16803c ;
+}
+
+.header__nav ul a :hover ::after {
+    margin-left : 15px ;
+    width : 70% ;
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+
+#menu-toggle
+{
+    display: none;
+}
+
+.hamburger
+{
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger svg
+{
+    width: 30px;
+    height: 30px;
+}
+
+.hamburger line
+{
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+
+    transform-box: view-box;
+    transform-origin: center;
+
+    transition: transform .3s ease, opacity .2s ease;
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main {
+    display: flex ;
+    flex-direction: column ;
+
+    width: min(90%, 1400px) ;
+}
+
+.main__container {
+    position: relative ;
+
+    display: flex ;
+    flex-direction: row ;
+    align-items: flex-start ;
+
+    /*
+        IMPORTANT :
+        The composition must remain a row.
+        Do not use flex-wrap here.
+    */
+    flex-wrap: nowrap ;
+
+    gap : clamp(.75rem, 2vw, 2rem) ;
+
+    width : 100% ;
+}
+
+
+/* =========================================================
+   DIAMOND COMPOSITION
+========================================================= */
+
+.main-content {
+    position : relative ;
+
+    /*
+        The diamond composition is one responsive unit.
+    */
+    width: min(55vw, 710px) ;
+
+    aspect-ratio: 710 / 530 ;
+
+    /*
+        Allows it to become smaller when necessary,
+        Instead of forcing horizontal overflow.
+    */
+    min-width: 0 ;
+
+    flex: 1 1 55% ;
+
+    align-self: flex-start ;
+
+    /*
+        Makes cqw refer to THIS composition.
+    */
+    container-type: inline-size ;
+    container-name: diamondbox ;
+}
+
+
+/* =========================================================
+   DIAMONDS
+========================================================= */
+
+.diamond-sports,
+.diamond-cultural,
+.diamond-Nursery {
+    position: absolute ;
+
+    width: 49.3% ;
+    aspect-ratio: 1 ;
+
+    overflow: hidden ;
+
+    clip-path: polygon(
+        50% 0,
+        100% 50%,
+        50% 100%,
+        0 50%
+    ) ;
+}
+
+
+/* First diamond */
+.diamond-sports {
+    top: 0 ;
+    left: 0 ;
+
+    box-shadow: var(--DefL-BS) ;
+}
+
+
+/* Middle diamond */
+.diamond-cultural {
+    top: 34% ;
+    left: 25.3% ;
+
+    box-shadow: var(--Def-BS) ;
+}
+
+
+/* Third diamond */
+.diamond-Nursery {
+    top: 0 ;
+    left: 50.7% ;
+
+    box-shadow: var(--Def-BS) ;
+}
+
+
+/* Images */
+
+.diamond-sports img,
+.diamond-cultural img,
+.diamond-Nursery img {
+    width: 100% ;
+    height: 100% ;
+
+    object-fit: cover ;
+}
+
+
+/* =========================================================
+   TRIANGLE
+========================================================= */
+
+.triangle {
+    position: absolute ;
+
+    width: 0 ;
+    height: 0 ;
+
+    /*
+        The triangle remains a BORDER triangle.
+        Therefore its shape remains the same.
+    */
+    border-left: clamp(30px, 21.1cqw, 150px) solid transparent ;
+    border-right: clamp(30px, 21.1cqw, 150px) solid transparent ;
+    border-bottom: clamp(30px, 22.5cqw, 160px) solid #c3c017 ;
+    /* border-bottom: 160px solid #ffd000 ; */
+
+    /*
+        Your chosen structural position.
+    */
+    top: 0% ;
+    left: 29.25% ;
+
+    transform: rotate(180deg) ;
+}
+
+
+/*
+    Fallback for browsers that don’t support cqw.
+*/
+
+@supports not (width : 1cqw) {
+
+    .triangle {
+        border-left-width: var(--triangle-size) ;
+        border-right-width: var(--triangle-size) ;
+        border-bottom-width: var(--triangle-size) ;
+    }
+}
+
+
+/* =========================================================
+   APPLY SECTION
+========================================================= */
+
+.Apply {
+    position: relative ;
+
+    display: flex ;
+    flex-direction: column ;
+    align-items: flex-start ;
+
+    gap: clamp(.8rem, 2vw, 1.5rem) ;
+
+    /*
+        The Apply section takes the remaining space.
+    */
+    flex: 1 1 45% ;
+
+    width: 45% ;
+
+    min-width: 0 ;
+
+    padding:
+        clamp(1rem, 3vw, 2rem)
+        clamp(.5rem, 2vw, 2rem)
+        clamp(2rem, 5vw, 4rem)
+        clamp(.5rem, 4vw, 5rem);
+}
+
+
+/* =========================================================
+   APPLY HEADING
+========================================================= */
+
+.Apply h2 {
+    /* display: flex;
+    flex-direction: column ; */
+
+    font-size : clamp(1.7rem, 4.5vw, 4rem);
+
+    /* line-height: 1.02; */
+
+    white-space: nowrap;
+}
+
+.green-text {
+    color: #043b1a;
+}
+
+.gold-text {
+    color: #c3c017;
+}
+
+
+/*
+    If your HTML currently has :
+
+    Shape the Future <br> Start Here
+
+    Use this instead if you don’t want to modify HTML :
+
+    .Apply h2 {
+        Max-width : 8ch ;
+    }
+*/
+
+
+/* =========================================================
+   LINE
+========================================================= */
+
+.line {
+    position: relative ;
+
+    width: clamp(55px, 8vw, 80px) ;
+    height: 2px ;
+
+    background-color: #b7a415 ;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.buttons {
+    display: flex ;
+    flex-direction: row ;
+    align-items: center ;
+
+    gap: clamp(.35rem, 1.5vw, 1rem) ;
+
+    width: 100% ;
+
+    flex-wrap: nowrap ;
+}
+
+.buttons button {
+    /*
+        Responsive button size.
+    */
+    padding:
+        clamp(.5rem, 1.5vw, 1rem)
+        clamp(.65rem, 2vw, 1.8rem) ;
+
+    border-radius: 10px ;
+
+    font-size: clamp(.65rem, 1.3vw, 1rem);
+
+    font-weight: 600;
+
+    box-shadow : var(--Def-BS) ;
+
+    /*
+        MOST IMPORTANT :
+        Text can never break.
+    */
+    white-space: nowrap ;
+
+    /*
+        Prevents one button from shrinking
+        While the other stays large.
+    */
+    flex: 0 1 auto ;
+}
+
+.application-button {
+    color: #c3c017 ;
+    background-color: #043b1a ;
+
+    border-top-left-radius: 15px ;
+    border-bottom-right-radius: 15px ;
+}
+
+
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+
+.testimonials {
+    --forest-green: #075b25;
+    --card-green: #55b85b;
+    --pink: #f58bc7;
+    --ink: #061b0d;
+  
+    width: 100%;
+    padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 3vw, 3rem) 4.5rem;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  #testimonialHeading{
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .testimonials__heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.8rem, 1.8vw, 1.8rem);
+    width: 100%;
+    margin: 0 auto clamp(4rem, 7vw, 6.5rem);
+  }
+  
+  .testimonials__heading h1 {
+    margin: 0;
+    color: #073f1b;
+    font-size: clamp(1.15rem, 2.35vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: center;
+  }
+  
+  .testimonials__line {
+    flex: 1 1 8rem;
+    max-width: 13rem;
+    min-width: 1.5rem;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--forest-green);
+  }
+  
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    gap: clamp(1.2rem, 3vw, 3.2rem);
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  
+  .testimonial {
+    --card-color: var(--card-green);
+    --fold-color: #087a2d;
+  
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    min-height: 29rem;
+    padding: 2rem clamp(1.1rem, 2vw, 2rem) 1.8rem;
+    border-radius: 2rem;
+    background: var(--card-color);
+    color: var(--ink);
+    box-shadow: 0 1.1rem 1.4rem rgb(0 0 0 / 18%);
+    text-align: center;
+  }
+  
+  /* Folded paper corner */
+  .testimonial__fold {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 5.4rem;
+    height: 5.4rem;
+    overflow: hidden;
+    border-top-right-radius: 1.8rem;
+  }
+  
+  .testimonial__fold::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 5.4rem solid var(--fold-color);
+    border-left: 5.4rem solid transparent;
+    content: "";
+    filter: drop-shadow(-3px 4px 3px rgb(0 0 0 / 12%));
+  }
+  
+  .testimonial__quote {
+    align-self: flex-start;
+    margin: 0 0 -0.4rem 0.2rem;
+    color: #004c1d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 5.5rem;
+    font-weight: 700;
+    line-height: 0.9;
+  }
+  
+  .testimonial__avatar {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    margin: -0.1rem auto 0.7rem;
+    object-fit: contain;
+    flex: 0 0 auto;
+  }
+  
+  .testimonial__text {
+    margin: 0;
+    font-size: clamp(1rem, 1.35vw, 1.45rem);
+    line-height: 1.48;
+    font-weight: 400;
+  }
+  
+  .testimonial__rule {
+    width: 72%;
+    height: 3px;
+    margin: auto 0 0.8rem;
+    background: #087a37;
+  }
+  
+  .testimonial__name {
+    margin: 0;
+    font-size: clamp(1.05rem, 1.5vw, 1.55rem);
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  
+  .testimonial__date {
+    margin: 0.15rem 0 0;
+    font-size: clamp(0.95rem, 1.25vw, 1.3rem);
+    line-height: 1.4;
+  }
+  
+  .testimonial--green {
+    --card-color: #55b85b;
+    --fold-color: #087a2d;
+  }
+  
+  .testimonial--pink {
+    --card-color: #f58bc7;
+    --fold-color: #e94b9f;
+  }
+  
+  .testimonial--left {
+    transform: rotate(-7deg);
+  }
+  
+  .testimonial--middle {
+    transform: rotate(0deg) scale(1.03);
+  }
+  
+  .testimonial--right {
+    transform: rotate(5deg);
+  }
+  
+  /* Two cards per row on tablets and smaller screens */
+  @media (max-width: 1000px) {
+    .testimonials__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 2rem;
+      row-gap: 3rem;
+    }
+  
+    .testimonial {
+      min-height: 27rem;
+      padding-inline: 1.5rem;
+    }
+  
+    .testimonial--middle {
+      transform: rotate(4deg);
+    }
+  
+    .testimonial--right {
+      transform: rotate(-4deg);
+    }
+  
+    .testimonials__heading {
+      margin-bottom: 4rem;
+    }
+  }
+  
+  /* One card per row on phones */
+  @media (max-width: 600px) {
+    .testimonials {
+      padding: 3rem 1.25rem;
+    }
+  
+    .testimonials__heading {
+      gap: 0.65rem;
+      margin-bottom: 3.5rem;
+    }
+  
+    .testimonials__heading h1 {
+      font-size: clamp(1.05rem, 4.5vw, 1.45rem);
+    }
+  
+    .testimonials__line {
+      flex: 0 1 2rem;
+      min-width: 0.8rem;
+      height: 2px;
+    }
+  
+    .testimonials__grid {
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: center;
+      gap: 2.5rem;
+    }
+  
+    .testimonial {
+      width: min(100%, 25rem);
+      min-height: 25rem;
+      padding: 1.6rem 1.4rem 1.5rem;
+    }
+  
+    .testimonial--left,
+    .testimonial--middle,
+    .testimonial--right {
+      transform: none;
+    }
+  
+    .testimonial__quote {
+      font-size: 4.5rem;
+    }
+  
+    .testimonial__avatar {
+      width: 4.3rem;
+      height: 4.3rem;
+    }
+  
+    .testimonial__text {
+      font-size: 1.05rem;
+    }
+  
+    .testimonial__name {
+      font-size: 1.15rem;
+    }
+  
+    .testimonial__date {
+      font-size: 1rem;
+    }
+  }
+  
+  /* Extra-small phones */
+  @media (max-width: 380px) {
+    .testimonials {
+      padding-inline: 0.9rem;
+    }
+  
+    .testimonials__heading h1 {
+      font-size: 1rem;
+    }
+  
+    .testimonial {
+      min-height: 23rem;
+      padding-inline: 1.1rem;
+      border-radius: 1.5rem;
+    }
+  
+    .testimonial__fold {
+      width: 4.3rem;
+      height: 4.3rem;
+      border-top-right-radius: 1.4rem;
+    }
+  
+    .testimonial__fold::before {
+      border-top-width: 4.3rem;
+      border-left-width: 4.3rem;
+    }
+  }
+  
+
+
+
+
+/* =========================================================
+   1200px AND BELOW
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .main-content {
+        width: min(55vw, 620px) ;
+    }
+
+    .Apply {
+        padding-left: clamp(1rem, 4vw, 3.5rem) ;
+    }
+}
+
+
+/* =========================================================
+   1041px AND BELOW
+========================================================= */
+
+/*
+    Nothing special needs to happen here.
+
+    The important difference from your previous CSS is that
+    The navigation is NOT allowed to wrap.
+
+    It remains on the right until 956px.
+*/
+
+
+@media (max-width : 1041px) {
+
+    .header__nav ul {
+        gap: clamp(.3rem, 1vw, 1rem) ;
+    }
+
+    .header__nav ul a {
+        padding-inline: clamp(.4rem, 1vw, .8rem) ;
+        font-size: clamp(.75rem, 1.2vw, .9rem) ;
+    }
+}
+
+
+/* =========================================================
+   956px AND BELOW
+   NAVIGATION → HAMBURGER
+========================================================= */
+
+@media (max-width : 956px) {
+
+    /*
+        Header remains FLEX.
+        No CSS GRID.
+    */
+
+    .header {
+        position : relative ;
+
+        Min-height : 75px ;
+
+        Justify-content : space-between ;
+
+        z-index: 1000;
+    }
+
+
+    /*
+        Keep the logo image on the left.
+    */
+
+    .header__Logo {
+
+        margin: auto;
+        width : auto ;
+
+        display : flex ;
+        gap: 1rem;
+
+        position : static ;
+    }
+
+    .header__Logo img {
+        width : clamp(3rem, 9vw, 4.5rem) ;
+        height : clamp(3rem, 9vw, 4.5rem) ;
+    }
+
+
+    /*
+        Put the school name exactly in the middle.
+    */
+
+    .header__Logo p {
+        /* position: absolute ;
+
+        left: 50% ;
+        top: 50% ;
+
+        transform: translate(-50%, -50%) ; */
+
+        width: max-content ;
+        max-width: 45vw ;
+
+        text-align: center ;
+
+        font-size: clamp(.8rem, 3vw, 1.3rem);
+    }
+
+    /*
+        Hide normal desktop navigation.
+    */
+
+    .header__nav {
+        position: absolute ;
+
+        top: 100% ;
+        left: 0 ;
+
+        width: 100% ;
+
+        margin: 0 ;
+
+        display: none ;
+
+        max-height: 0 ;
+
+        background: white ;
+
+        z-index: 1001;
+
+        /* overflow: hidden ;
+
+        transition: max-height .35s ease ; */
+    }
+
+
+    /*
+        JavaScript adds .active.
+    */
+
+    .header__nav.active {
+        max-height: 500px ;
+    }
+
+
+    .header__nav ul {
+        display: flex;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        width: 80%;
+
+        margin: auto;
+
+        padding: .5rem 0 1rem;
+    }
+
+
+    .header__nav ul a {
+        width: 100% ;
+
+        padding: .9rem 1rem ;
+
+        text-align: center ;
+
+        white-space: normal ;
+
+        font-size: 1rem ;
+    }
+
+    .header__nav ul a:hover::after {
+        width: 0;
+    }
+
+    /*
+        Hamburger at the right.
+    */
+
+    .hamburger
+    {
+        display: block;
+        margin-left: auto;
+    }
+
+    .header:has(#menu-toggle:checked) .header__nav
+    {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        max-height: 500px;
+    }
+    #menu-toggle:checked + .hamburger .line1
+    {
+        transform: translateY(4px) rotate(42.5deg);
+    }
+    #menu-toggle:checked + .hamburger .line2
+    {
+        opacity: 0;
+    }
+    #menu-toggle:checked + .hamburger .line3
+    {
+        transform: translateY(-4px) rotate(-42.5deg);
+    }
+}
+
+
+/* =========================================================
+   818px AND BELOW
+========================================================= */
+
+@media (max-width : 818px) {
+    .header__Logo p 
+    {
+        width: min-content;
+    }
+}
+
+
+/* =========================================================
+   721px AND BELOW
+========================================================= */
+
+@media (max-width : 721px) {
+    .main__container{
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        min-height: 300px;
+
+        margin-top: 1rem;
+    }
+
+    .main-content{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+    }
+
+    .Apply{
+        position: absolute;
+        margin-top: calc(24% - 5.8rem);
+        top: clamp(5px, 20%, 100px);
+        left: clamp(25%, 44vw, 51%);
+    }
+}
+
+
+/* =========================================================
+   700px AND BELOW
+========================================================= */
+
+@media (max-width : 700px) {
+
+    .header {
+        padding: 1rem ;
+    }
+
+    .header__Logo p {
+        max-width: 42vw ;
+
+        font-size: clamp(.75rem, 3vw, 1rem) ;
+    }
+
+
+    /*
+        The diamond composition STILL stays beside Apply.
+        We are NOT stacking them.
+    */
+
+    .main__container {
+        gap: .5rem ;
+    }
+
+
+    /*
+        Let the diamond composition become smaller.
+    */
+
+    .main-content {
+        width: 52% ;
+
+        flex: 1 1 52% ;
+    }
+
+
+    .Apply {
+        width: 48% ;
+
+        flex: 1 1 48% ;
+
+        padding: 1rem .25rem 2rem .75rem ;
+
+        gap: .8rem ;
+    }
+   
+
+    .Apply h2 {
+        font-size: clamp( 1.35rem, 5vw, 2.5rem) ;
+    }
+
+
+    .buttons {
+        gap: .35rem ;
+    }
+
+
+    .buttons button {
+        padding: .55rem clamp(.45rem, 1.5vw, .8rem) ;
+
+        font-size: clamp(.58rem, 1.8vw, .8rem);
+    }
+}
+
+
+/* =========================================================
+   500px AND BELOW
+========================================================= */
+
+@media (max-width : 500px) {
+
+    .header {
+        padding: .75rem ;
+    }
+
+    .header__Logo img {
+        width: 3rem ;
+        height: 3rem ;
+    }
+
+    .header__Logo p {
+        font-size: clamp(.7rem, 3.2vw, .9rem);
+    }
+}

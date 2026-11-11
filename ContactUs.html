@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Eduplus International School.">
+  <title>Contact Us | Eduplus International School</title>
+  <link rel="stylesheet" href="ContactUs.css">
+</head>
+<body>
+  <!-- HEADER: based on your supplied header structure -->
+  <header class="header">
+    <section class="header__Logo" aria-label="Eduplus International School">
+      <img class="logo-mark" src="I-pic/Eduplus_Logo.png" alt="Eduplus_Logo">
+      <p>EDUPLUS INTERNATIONAL SCHOOL</p>
+    </section>
+
+    <section class="header__menu">
+      <input type="checkbox" id="menu-toggle" aria-label="Toggle navigation">
+      <label for="menu-toggle" class="hamburger" aria-label="Open navigation">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <line class="line1" x1="3" y1="6" x2="21" y2="6"></line>
+          <line class="line2" x1="3" y1="12" x2="21" y2="12"></line>
+          <line class="line3" x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </label>
+    </section>
+
+    <nav class="header__nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="About.html">About Us</a></li>
+        <li><a href="Admission.html">Admission</a></li>
+        <li><a href="SignUp.html" aria-current="page">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="contact" aria-labelledby="contact-title">
+      <div class="contact__content">
+
+        <div class="contact__heading">
+          <!-- <span class="heading-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M3 5.5h18v13H3z"/><path d="m3.5 6 8.5 7 8.5-7"/></svg>
+          </span> -->
+          <div>
+            <h1 id="contact-title">Contact Us</h1>
+          </div>
+        </div>
+
+        <p class="contact__intro">Have a question, a complain, or need more information? Send us a message and our team will be happy to help.</p>
+
+        <form class="contact-form" action="#" method="post" enctype="multipart/form-data">
+          <label class="field">
+            <span class="sr-only">Upload file</span>
+            <span class="field-icon" aria-hidden="true">↥</span>
+            <input type="file" name="attachment" aria-label="Upload file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+          </label>
+          <label class="field">
+            <span class="field-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 12a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>
+            </span>
+            <input type="text" name="name" placeholder="Name" autocomplete="name" required>
+          </label>
+          <label class="field">
+            <span class="field-icon" aria-hidden="true">✉</span>
+            <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+          </label>
+          <label class="field">
+            <span class="field-icon" aria-hidden="true">▤</span>
+            <input type="text" name="subject" placeholder="Title of Message" required>
+          </label>
+          <label class="field field--message">
+            <span class="field-icon field-icon--top" aria-hidden="true">☰</span>
+            <textarea name="message" placeholder="Message" rows="5" required></textarea>
+          </label>
+          <div class="form-actions">
+            <button class="button button--send" type="submit"><span aria-hidden="true">➤</span> Send</button>
+            <button class="button button--reset" type="reset"><span aria-hidden="true">↻</span> Reset</button>
+          </div>
+          <p class="form-note">For more enquiries call: 08037205848.</p>
+        </form>
+      </div>
+
+      <div class="contact__visual">
+        <img src="I-pic/contact-girl.png" alt="A schoolgirl putting an envelope into a large mailbox">
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Close the mobile menu after a navigation link is selected.
+    document.querySelectorAll('.header__nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('menu-toggle').checked = false;
+      });
+    });
+  </script>
+
+</body>
+</html>
