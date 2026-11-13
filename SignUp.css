@@ -305,7 +305,7 @@ input {
   transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
 }
 
-.signin-button {
+.signin-button::before {
    content: '';
    position: absolute;
    top:120%;
